@@ -1,0 +1,44 @@
+======================================
+IP Addressing Table (End devices)
+======================================
+pc-1 (HQ Network) :
+   IP/MASK     : 10.0.0.100/24
+   GATEWAY     : 10.0.0.1
+
+pc-2 (Branch Network) :
+   IP/MASK     : 12.0.0.100/24
+   GATEWAY     : 12.0.0.2
+
+
+=====================================
+Router 1 configuration (HQ-Router)
+=====================================
+hostname R1
+!
+
+interface FastEthernet0/0
+ ip address 10.0.0.1 255.255.255.0
+!
+
+interface FastEthernet1/0
+ ip address 11.0.0.1 255.255.255.0
+ 
+!
+
+ip route 12.0.0.0 255.255.255.0 FastEthernet1/0
+
+
+=======================================
+Router 2 configuration (Branch Network)
+=======================================
+hostname R2
+!
+interface FastEthernet0/0
+ ip address 11.0.0.2 255.255.255.0
+ 
+!
+interface FastEthernet1/0
+ ip address 12.0.0.2 255.255.255.0
+ 
+!
+ip route 10.0.0.0 255.255.255.0 11.0.0.1
