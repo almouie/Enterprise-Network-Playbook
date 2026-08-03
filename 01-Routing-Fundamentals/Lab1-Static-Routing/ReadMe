@@ -1,1 +1,31 @@
+Markdown
 
+# Lab 1: Bidirectional Static Routing
+
+## 📝 Objective
+The objective of this lab is to establish manually configured, bidirectional connectivity between two remote subnets (HQ Network and Branch Network) across two Cisco routers using Static Routing.
+
+## 🗺️ Topology
+![Network Topology](./topology.png)
+
+## ⚙️ Key Configuration Commands
+Static routing commands applied to route traffic between the two subnets:
+
+**HQ-Router:**
+```bash
+HQ-Router(config)# ip route [Branch_Network_Address] [Subnet_Mask] [Next_Hop_IP OR exit interface]
+
+Branch-Router:
+Bash
+
+Branch-Router(config)# ip route [HQ_Network_Address] [Subnet_Mask] [Next_Hop_IP]
+
+✅ Verification & Troubleshooting
+
+End-to-end connectivity was successfully verified using the following steps:
+
+    Executing ping commands from PC-1 (HQ Subnet) to PC-2 (Branch Subnet).
+
+    Verifying static route entries in the routing table using show ip route.
+
+Note: Complete device configurations and IP tables are available in the config.txt file attached in this folder.
