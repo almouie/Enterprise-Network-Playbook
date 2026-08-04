@@ -1,0 +1,82 @@
+======================================
+IP Addressing Table (End devices)
+======================================
+pc-1 (HQ Network) :
+   IP/MASK     : 10.0.0.100/24
+   GATEWAY     : 10.0.0.1
+
+pc-2 (Branch Network) :
+   IP/MASK     : 12.0.0.100/24
+   GATEWAY     : 12.0.0.2
+
+
+=====================================
+Router 1 configuration (customer)
+=====================================
+
+hostname R1
+!
+
+interface FastEthernet0/0
+ ip address 10.0.0.1 255.255.255.0
+ 
+!
+interface FastEthernet1/0
+ ip address 11.0.0.1 255.255.255.0
+!
+
+!
+ip route 0.0.0.0 0.0.0.0 11.0.0.2
+!
+
+
+end
+
+=======================================
+Router 2 configuration (ISP)
+=======================================
+hostname R2
+!
+!
+interface Loopback13
+ ip address 13.0.0.2 255.255.255.0
+!
+interface Loopback14
+ ip address 14.0.0.2 255.255.255.0
+!
+interface Loopback15
+ ip address 15.0.0.2 255.255.255.0
+!
+interface FastEthernet0/0
+ ip address 11.0.0.2 255.255.255.0
+ 
+!
+interface FastEthernet1/0
+ ip address 12.0.0.2 255.255.255.0
+ 
+!
+interface FastEthernet1/1
+ ip address 16.0.0.2 255.255.255.0
+
+
+!
+ip route 10.0.0.0 255.255.255.0 11.0.0.1
+ip route 17.0.0.0 255.255.255.0 16.0.0.3
+
+end
+=======================================
+Router 3 configuration 
+=======================================
+hostname R3
+!
+interface Loopback17
+ ip address 17.0.0.3 255.255.255.0
+!
+interface FastEthernet0/0
+ ip address 16.0.0.3 255.255.255.0
+ 
+!
+ip route 0.0.0.0 0.0.0.0 16.0.0.2
+!
+
+end
