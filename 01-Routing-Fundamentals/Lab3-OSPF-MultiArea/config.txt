@@ -1,0 +1,45 @@
+=====================================
+Router 1 configuration 
+=====================================
+
+hostname R1
+!
+
+
+interface Loopback1
+ ip address 1.1.1.1 255.255.255.255
+!
+interface FastEthernet0/0
+ ip address 10.0.0.1 255.255.255.0
+ 
+!
+router ospf 1
+ network 1.1.1.1 0.0.0.0 area 0
+ network 10.0.0.1 0.0.0.0 area 0
+!
+
+
+end
+
+=====================================
+Router 2 configuration 
+=====================================
+
+
+hostname R2
+!
+
+interface Loopback2
+ ip address 2.2.2.2 255.255.255.255
+!
+
+interface FastEthernet1/0
+ ip address 10.0.0.2 255.255.255.0
+ 
+!
+
+router ospf 2
+ network 2.2.2.2 0.0.0.0 area 10
+ network 10.0.0.2 0.0.0.0 area 0
+!
+end
