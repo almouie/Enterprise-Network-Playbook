@@ -1,0 +1,48 @@
+======================================
+IP Addressing Table (End devices)
+======================================
+pc-1  :
+   IP/MASK     : 192.168.10.100/24
+   GATEWAY     : 192.168.10.1
+
+pc-2  :
+   IP/MASK     : 192.168.20.100/24
+   GATEWAY     : 192.168.20.1
+.1
+
+
+=====================================
+Router  configuration 
+=====================================
+!
+hostname Router
+!
+
+interface GigabitEthernet0/0
+ no ip address
+ 
+!
+interface GigabitEthernet0/0.10
+ encapsulation dot1Q 10
+ ip address 192.168.10.1 255.255.255.0
+!
+interface GigabitEthernet0/0.20
+ encapsulation dot1Q 20
+ ip address 192.168.20.1 255.255.255.0
+=======================================
+Switch  configuration 
+=======================================
+!
+hostname Switch
+!
+interface FastEthernet0/1
+ switchport mode trunk
+!
+interface FastEthernet0/2
+ switchport access vlan 20
+ switchport mode access
+!
+interface FastEthernet0/3
+ switchport access vlan 10
+ switchport mode access
+!
