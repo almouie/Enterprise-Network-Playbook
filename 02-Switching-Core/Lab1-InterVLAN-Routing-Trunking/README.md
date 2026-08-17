@@ -1,5 +1,5 @@
 ```markdown
-# Lab 4: Inter-VLAN Routing & 802.1Q Trunking (Router-on-a-Stick)
+# Lab 1: Inter-VLAN Routing & 802.1Q Trunking (Router-on-a-Stick)
 
 ## 📝 Objective
 The goal of this lab is to achieve Layer 2 network segmentation using **VLANs** and enable controlled Layer 3 inter-communication using **802.1Q Trunking** and a **Router-on-a-Stick** architecture in GNS3.
