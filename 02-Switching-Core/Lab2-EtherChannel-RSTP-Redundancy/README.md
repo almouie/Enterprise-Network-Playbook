@@ -6,15 +6,7 @@ Markdown
 The objective of this lab is to build a highly available and resilient Layer 2 enterprise switching architecture. It combines link aggregation using **LACP EtherChannel** for high bandwidth with **Rapid PVST+** for fast loop prevention, alongside edge port security (**PortFast & BPDU Guard**).
 
 ## 🗺️ Network Topology
-```text
-           [ SW1 - Root Primary ]
-            //               \
-      (EtherChannel           (Single Trunk Link)
-       Port-Channel 1)          |
-          //                    \
-       [ SW2 ] ---------------- [ SW3 ]
-   (Root Secondary)  (Single Trunk)   \ (Access Port)
-                                       [ PC1 ]
+![Topology Diagram](./topology.png)
 
 🔑 Key Technologies & Concepts
 
