@@ -6,13 +6,7 @@ Markdown
 This lab demonstrates the implementation of **LACP EtherChannel** integrated with **Rapid PVST+** across a 3-switch redundant topology. It illustrates how Spanning Tree Protocol (STP) dynamically recalculates Root Path Costs when physical uplinks are aggregated into a logical interface.
 
 ## 🗺️ Network Topology & STP States
-```text
-           [ SW1: Primary Root ]
-            //               \
-  (Po1: LACP Active)        (Single Trunk)
-          //                  \
-   [ SW2: Secondary ] -------- [ SW3: Non-Root ]
-   (Po1 State: BLK)  (Trunk)   (All Ports: FWD)
+![Topology Diagram](./topology.png)
 
 ⚙️ Key Technical Insight
 
