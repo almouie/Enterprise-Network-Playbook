@@ -1,0 +1,32 @@
+======================================
+Switch 1 configuration
+======================================
+!
+hostname sw1
+!
+errdisable recovery cause psecure-violation
+errdisable recovery interval 30
+!
+interface Ethernet0/1
+ switchport mode access
+ switchport port-security mac-address sticky
+ switchport port-security mac-address sticky 0050.7966.6800
+ switchport port-security
+!
+
+
+======================================
+pc 1 configuration
+======================================
+NAME        : PC1
+IP/MASK     : 192.168.1.100/24
+
+
+
+======================================
+pc 2 configuration
+======================================
+NAME        : PC2
+IP/MASK     : 192.168.1.101/24
+
+
