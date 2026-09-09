@@ -1,0 +1,54 @@
+======================================
+R1_Legitimate configuration
+======================================
+!
+hostname R1_Legitimate
+!
+ip dhcp pool LEGIT_POOL
+ network 192.168.10.0 255.255.255.0
+ default-router 192.168.10.1
+ dns-server 8.8.8.8
+!
+interface FastEthernet0/0
+ ip address 192.168.10.1 255.255.255.0!
+
+
+
+======================================
+R2_Rogue configuration
+======================================
+!
+hostname Rogue_DHCP
+!
+ip dhcp pool ROGUE_POOL
+ network 10.10.10.0 255.255.255.0
+ default-router 10.10.10.1
+!
+interface FastEthernet0/0
+ ip address 10.10.10.1 255.255.255.0
+
+
+======================================
+SW1 configuration
+======================================
+
+!
+hostname SW1
+!
+!
+ip dhcp snooping vlan 1
+no ip dhcp snooping information option
+
+interface Ethernet0/0
+ ip dhcp snooping trust
+!
+interface Ethernet0/1
+ switchport mode access
+ ip dhcp snooping limit rate 2
+!
+interface Ethernet0/2
+ switchport mode access
+ ip dhcp snooping limit rate 2
+!
+
+
