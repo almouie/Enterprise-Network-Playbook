@@ -1,0 +1,44 @@
+======================================
+R1_central_DHCP_Server_ configuration
+======================================
+!
+hostname R1_DHCP_Server
+!
+ip dhcp excluded-address 192.168.10.1 192.168.10.10
+!
+ip dhcp pool SALES_POOL
+   network 192.168.10.0 255.255.255.0
+   default-router 192.168.10.1
+   dns-server 8.8.8.8
+   lease 7
+!
+interface FastEthernet0/0
+ ip address 10.0.0.1 255.255.255.252
+!
+
+ip route 192.168.10.0 255.255.255.0 10.0.0.2
+!
+
+
+======================================
+R2_Core configuration
+======================================
+!
+!
+hostname R2_Core_Gateway
+!
+interface FastEthernet0/0
+ ip address 10.0.0.2 255.255.255.252
+ 
+!
+interface FastEthernet0/1
+ ip address 192.168.10.1 255.255.255.0
+ ip helper-address 10.0.0.1
+
+
+======================================
+pc
+======================================
+
+ip dhcp
+
